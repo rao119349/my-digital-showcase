@@ -1,0 +1,83 @@
+import { motion } from "framer-motion";
+import { Download, ArrowDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const Hero = () => {
+  return (
+    <section className="min-h-screen flex items-center section-padding relative overflow-hidden">
+      {/* Ambient glow */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto w-full relative z-10">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-muted-foreground font-body text-sm tracking-[0.3em] uppercase mb-6"
+        >
+          Creative Designer & Developer
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] mb-8"
+        >
+          Hi, I'm{" "}
+          <span className="text-gradient">Your Name</span>
+          <br />
+          <span className="text-muted-foreground/60">I build digital</span>
+          <br />
+          experiences.
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-muted-foreground font-body text-lg md:text-xl max-w-xl mb-10"
+        >
+          A passionate designer crafting beautiful, functional interfaces
+          that leave a lasting impression.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="flex flex-wrap gap-4"
+        >
+          <Button
+            size="lg"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading font-semibold text-base px-8 py-6 gap-2"
+            onClick={() => {
+              // Replace with your actual CV URL
+              const link = document.createElement("a");
+              link.href = "/sample-cv.pdf";
+              link.download = "My_CV.pdf";
+              link.click();
+            }}
+          >
+            <Download className="w-5 h-5" />
+            Download CV
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-border text-foreground hover:bg-secondary font-heading font-semibold text-base px-8 py-6 gap-2"
+            onClick={() =>
+              document.getElementById("work")?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            View Work
+            <ArrowDown className="w-4 h-4" />
+          </Button>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
