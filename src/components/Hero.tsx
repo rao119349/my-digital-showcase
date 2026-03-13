@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, ArrowDown } from "lucide-react";
+import { Download, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
