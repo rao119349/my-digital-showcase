@@ -22,7 +22,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/30">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 md:px-12 py-4">
         <div className="flex px-3 py-2 items-center gap-2">
-          <img src="../../public/SY-Logo.svg" alt="Logo" className="w-8 h-8" />
+          <img src="/SY-Logo.svg" alt="Logo" className="w-8 h-8" />
           <a href="#" className="font-heading text-xl font-bold text-gradient">
             Portfolio
           </a>
