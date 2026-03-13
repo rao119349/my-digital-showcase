@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, ArrowDown } from "lucide-react";
+import { ExternalLink, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -52,16 +52,12 @@ const Hero = () => {
           <Button
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading font-semibold text-base px-8 py-6 gap-2"
-            onClick={() => {
-              // Replace with your actual CV URL
-              const link = document.createElement("a");
-              link.href = "/sample-cv.pdf";
-              link.download = "My_CV.pdf";
-              link.click();
-            }}
+            asChild
           >
-            <Download className="w-5 h-5" />
-            Download CV
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="w-5 h-5" />
+              View Resume
+            </a>
           </Button>
           <Button
             variant="outline"
