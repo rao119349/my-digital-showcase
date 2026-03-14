@@ -1,40 +1,32 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
-const behanceProjects = [
-  {
-    title: "Brand Campaign Design",
-    thumbnail: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&q=80",
-    behanceUrl: "https://www.behance.net/",
-  },
-  {
-    title: "Product Photography",
-    thumbnail: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",
-    behanceUrl: "https://www.behance.net/",
-  },
-  {
-    title: "Illustration Series",
-    thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80",
-    behanceUrl: "https://www.behance.net/",
-  },
-  {
-    title: "Web Design Concepts",
-    thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
-    behanceUrl: "https://www.behance.net/",
-  },
-  {
-    title: "Motion Graphics",
-    thumbnail: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80",
-    behanceUrl: "https://www.behance.net/",
-  },
-  {
-    title: "UI Kit Design",
-    thumbnail: "https://images.unsplash.com/photo-1545235617-9465d2a55698?w=600&q=80",
-    behanceUrl: "https://www.behance.net/",
-  },
+const defaultProjects = [
+  { id: "1", title: "Brand Campaign Design", image_url: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&q=80", link: "https://www.behance.net/" },
+  { id: "2", title: "Product Photography", image_url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80", link: "https://www.behance.net/" },
+  { id: "3", title: "Illustration Series", image_url: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80", link: "https://www.behance.net/" },
+  { id: "4", title: "Web Design Concepts", image_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80", link: "https://www.behance.net/" },
+  { id: "5", title: "Motion Graphics", image_url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80", link: "https://www.behance.net/" },
+  { id: "6", title: "UI Kit Design", image_url: "https://images.unsplash.com/photo-1545235617-9465d2a55698?w=600&q=80", link: "https://www.behance.net/" },
 ];
 
 const BehancePortfolio = () => {
+  const { data: dbProjects } = useQuery({
+    queryKey: ["projects", "behance"],
+    queryFn: async () => {
+      const { data } = await supabase
+        .from("projects")
+        .select("*")
+        .eq("section", "behance")
+        .order("sort_order");
+      return data;
+    },
+  });
+
+  const projects = dbProjects?.length ? dbProjects : defaultProjects;
+
   return (
     <section id="behance" className="section-padding bg-secondary/30">
       <div className="max-w-6xl mx-auto">
@@ -54,10 +46,10 @@ const BehancePortfolio = () => {
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {behanceProjects.map((project, i) => (
+          {projects.map((project, i) => (
             <motion.a
-              key={project.title}
-              href={project.behanceUrl}
+              key={project.id}
+              href={project.link}
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -67,7 +59,7 @@ const BehancePortfolio = () => {
               className="group relative aspect-square rounded-xl overflow-hidden"
             >
               <img
-                src={project.thumbnail}
+                src={project.image_url}
                 alt={project.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
