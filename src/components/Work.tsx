@@ -1,38 +1,58 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
-const projects = [
+const defaultProjects = [
   {
+    id: "1",
     title: "E-Commerce Redesign",
     category: "UI/UX Design",
     description: "Complete redesign of an e-commerce platform focusing on conversion optimization and user experience.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    image_url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     link: "#",
   },
   {
+    id: "2",
     title: "Mobile Banking App",
     category: "App Design",
     description: "Modern banking application with intuitive navigation and seamless transaction flows.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    image_url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     link: "#",
   },
   {
+    id: "3",
     title: "Brand Identity System",
     category: "Branding",
     description: "Comprehensive brand identity including logo, typography, color system, and guidelines.",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+    image_url: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
     link: "#",
   },
   {
+    id: "4",
     title: "Dashboard Analytics",
     category: "Web Development",
     description: "Real-time analytics dashboard with interactive charts and data visualization.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    image_url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     link: "#",
   },
 ];
 
 const Work = () => {
+  const { data: dbProjects } = useQuery({
+    queryKey: ["projects", "work"],
+    queryFn: async () => {
+      const { data } = await supabase
+        .from("projects")
+        .select("*")
+        .eq("section", "work")
+        .order("sort_order");
+      return data;
+    },
+  });
+
+  const projects = dbProjects?.length ? dbProjects : defaultProjects;
+
   return (
     <section id="work" className="section-padding">
       <div className="max-w-6xl mx-auto">
@@ -51,7 +71,7 @@ const Work = () => {
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, i) => (
             <motion.a
-              key={project.title}
+              key={project.id}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -63,7 +83,7 @@ const Work = () => {
             >
               <div className="aspect-video overflow-hidden">
                 <img
-                  src={project.image}
+                  src={project.image_url}
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
