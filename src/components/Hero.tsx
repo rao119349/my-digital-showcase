@@ -2,36 +2,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Download, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
 import ResumeDialog from "@/components/ResumeDialog";
 
 const Hero = () => {
   const [resumeOpen, setResumeOpen] = useState(false);
-
-  const { data: heroSettings } = useQuery({
-    queryKey: ["site-settings", "hero"],
-    queryFn: async () => {
-      const { data } = await supabase
-        .from("site_settings")
-        .select("*")
-        .eq("key", "hero")
-        .maybeSingle();
-      return data?.value as {
-        name?: string;
-        subtitle?: string;
-        description?: string;
-        hero_image_url?: string;
-      } | null;
-    },
-  });
-
-  const name = heroSettings?.name || "Your Name";
-  const subtitle = heroSettings?.subtitle || "Creative Designer & Developer";
-  const description =
-    heroSettings?.description ||
-    "A passionate designer crafting beautiful, functional interfaces that leave a lasting impression.";
-  const heroImage = heroSettings?.hero_image_url || "/placeholder.svg";
 
   return (
     <section className="min-h-screen flex items-center section-padding relative overflow-hidden">
@@ -46,7 +20,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="text-muted-foreground font-body text-sm tracking-[0.3em] uppercase mb-6"
           >
-            {subtitle}
+            Frontend Developer | UI/UX Design Expert
           </motion.p>
 
           <motion.h1
@@ -56,7 +30,7 @@ const Hero = () => {
             className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[0.95] mb-8"
           >
             Hi, I'm{" "}
-            <span className="text-gradient">{name}</span>
+            <span className="text-gradient">Saurav Yadav</span>
             <br />
             <span className="text-muted-foreground/60">I build digital</span>
             <br />
@@ -69,7 +43,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-muted-foreground font-body text-lg md:text-xl max-w-xl mb-10"
           >
-            {description}
+            Passionate about crafting seamless digital experiences through clean code and intuitive design, with expertise in React, JavaScript, and UI/UX design.
           </motion.p>
 
           <motion.div
@@ -108,8 +82,8 @@ const Hero = () => {
         >
           <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border border-border bg-secondary/50">
             <img
-              src={heroImage}
-              alt="Hero portrait"
+              src="/placeholder.svg"
+              alt="Saurav Yadav"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
