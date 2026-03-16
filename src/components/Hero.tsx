@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Download, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ResumeDialog from "@/components/ResumeDialog";
+import { PERSONAL_INFO } from "@/constants";
 
 const Hero = () => {
   const [resumeOpen, setResumeOpen] = useState(false);
@@ -30,7 +31,7 @@ const Hero = () => {
             className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[0.95] mb-8"
           >
             Hi, I'm{" "}
-            <span className="text-gradient">Saurav Yadav</span>
+            <span className="text-gradient">{PERSONAL_INFO.name}</span>
             <br />
             <span className="text-muted-foreground/60">I build digital</span>
             <br />

@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
-  { label: "Behance", href: "#behance" },
-  { label: "Contact", href: "#contact" },
-];
+import { NAV_LINKS } from "@/constants";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -30,7 +24,7 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((l) => (
+          {NAV_LINKS.map((l) => (
             <button
               key={l.label}
               onClick={() => scrollTo(l.href)}
@@ -60,7 +54,7 @@ const Navbar = () => {
             className="md:hidden overflow-hidden bg-background border-b border-border/30"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
-              {navLinks.map((l) => (
+              {NAV_LINKS.map((l) => (
                 <button
                   key={l.label}
                   onClick={() => scrollTo(l.href)}

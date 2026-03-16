@@ -1,0 +1,116 @@
+// Design System Mixins
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Button styles
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-lg;
+  font-family: $font-heading;
+  font-weight: 600;
+  transition: all $transition-normal;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: $primary-color;
+  color: $primary-foreground;
+
+  &:hover {
+    background-color: lighten($primary-color, 10%);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: $secondary-color;
+  color: $secondary-foreground;
+  border: 1px solid $border;
+
+  &:hover {
+    background-color: lighten($secondary-color, 5%);
+  }
+}
+
+// Card styles
+@mixin glass-card {
+  background-color: rgba($background, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba($border, 0.5);
+  border-radius: $radius-xl;
+}
+
+// Text gradient
+@mixin text-gradient {
+  background: linear-gradient(90deg, $primary-color, lighten($primary-color, 20%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Responsive utilities
+@mixin responsive($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: 640px) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+}
+
+// Animation mixins
+@mixin fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin slide-up {
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

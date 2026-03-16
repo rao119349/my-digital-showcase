@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
+import { PERSONAL_INFO } from "@/constants";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -26,7 +27,7 @@ const Contact = () => {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: "sauravyadav1193@gmail.com", // Your Gmail address
+          to_email: PERSONAL_INFO.email, // Your Gmail address
         },
         "0avHFsc_iv9tMyBls", // Replace with your EmailJS public key
       );
@@ -81,7 +82,7 @@ const Contact = () => {
               <div>
                 <p className="font-heading font-semibold">Email</p>
                 <p className="text-muted-foreground text-sm">
-                  sauravyadav1193@gmail.com
+                  {PERSONAL_INFO.email}
                 </p>
               </div>
             </div>
@@ -92,7 +93,7 @@ const Contact = () => {
               <div>
                 <p className="font-heading font-semibold">Location</p>
                 <p className="text-muted-foreground text-sm">
-                  Faridabad, Haryana, India
+                  {PERSONAL_INFO.location}
                 </p>
               </div>
             </div>

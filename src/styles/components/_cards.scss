@@ -1,0 +1,110 @@
+// Card Components
+
+.card {
+  @include glass-card;
+  padding: $spacing-xl;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.card-work {
+  @extend .card;
+  overflow: hidden;
+
+  .card-image {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    border-radius: $radius-lg;
+    margin-bottom: $spacing-lg;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $transition-slow;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+
+  .card-content {
+    .card-category {
+      font-size: $font-size-xs;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: $primary-color;
+      margin-bottom: $spacing-xs;
+    }
+
+    .card-title {
+      font-family: $font-heading;
+      font-size: $font-size-xl;
+      font-weight: 600;
+      margin-bottom: $spacing-sm;
+    }
+
+    .card-description {
+      color: $muted-foreground;
+      font-size: $font-size-sm;
+      line-height: 1.5;
+    }
+  }
+}
+
+.card-behance {
+  @extend .card;
+  aspect-ratio: 1;
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow;
+  }
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba($background, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-md;
+    opacity: 0;
+    transition: opacity $transition-normal;
+    padding: $spacing-lg;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+
+    .card-overlay {
+      opacity: 1;
+    }
+  }
+
+  .card-title {
+    font-family: $font-heading;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    text-align: center;
+    color: $foreground;
+  }
+
+  .card-link {
+    color: $primary-color;
+    font-size: $font-size-xs;
+  }
+}
