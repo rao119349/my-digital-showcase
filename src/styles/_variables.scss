@@ -14,8 +14,33 @@ $accent: hsl(40, 95%, 55%);
 $destructive: hsl(0, 84.2%, 60.2%);
 
 // Typography
-$font-heading: "Space Grotesk", sans-serif;
-$font-body: "Inter", sans-serif;
+$font-heading-name: "Space Grotesk"; // change this to update the heading font everywhere
+$font-body-name: "Inter"; // change this to update the body font everywhere
+
+@function _encode-font-name($name) {
+  @return str-replace($name, " ", "+");
+}
+
+$font-heading-safe: _encode-font-name($font-heading-name);
+$font-body-safe: _encode-font-name($font-body-name);
+
+$font-heading:
+  "#{$font-heading-name}",
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif;
+$font-body:
+  "#{$font-body-name}",
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif;
+
+// Google font import helper (used in src/index.scss)
+$google-fonts-url: "https://fonts.googleapis.com/css2?family=#{$font-heading-safe}:wght@300;400;700&family=#{$font-body-safe}:wght@300;400;500;600&display=swap";
 
 $font-size-xs: 0.75rem;
 $font-size-sm: 0.875rem;
