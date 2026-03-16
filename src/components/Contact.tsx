@@ -49,7 +49,7 @@ const Contact = () => {
               </div>
               <div>
                 <p className="font-heading font-semibold">Email</p>
-                <p className="text-muted-foreground text-sm">hello@youremail.com</p>
+                <p className="text-muted-foreground text-sm">sauravyadav1193@gmail.com</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -58,7 +58,7 @@ const Contact = () => {
               </div>
               <div>
                 <p className="font-heading font-semibold">Location</p>
-                <p className="text-muted-foreground text-sm">Your City, Country</p>
+                <p className="text-muted-foreground text-sm">Faridabad, Haryana, India</p>
               </div>
             </div>
           </div>

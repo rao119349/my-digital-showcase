@@ -1,49 +1,26 @@
 import { motion } from "framer-motion";
 import { User, Briefcase, MapPin, Mail } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
 
-const defaultDetails = [
-  { icon: User, label: "Name", value: "Your Name" },
-  { icon: Briefcase, label: "Role", value: "UI/UX Designer & Developer" },
-  { icon: MapPin, label: "Location", value: "Your City, Country" },
-  { icon: Mail, label: "Email", value: "hello@youremail.com" },
+const aboutDetails = [
+  { icon: User, label: "Name", value: "Saurav Yadav" },
+  { icon: Briefcase, label: "Role", value: "Frontend Developer | UI/UX Design Expert" },
+  { icon: MapPin, label: "Location", value: "Faridabad, Haryana, India" },
+  { icon: Mail, label: "Email", value: "sauravyadav1193@gmail.com" },
 ];
 
-const defaultSkills = [
-  "UI/UX Design", "React", "TypeScript", "Figma",
-  "Adobe Creative Suite", "Framer", "Tailwind CSS", "Next.js",
+const skills = [
+  "React", "JavaScript", "TypeScript", "HTML5", "CSS3", "Bootstrap",
+  "Redux", "Figma", "Adobe Creative Suite", "Webpack", "Vite",
+  "GitHub", "Tailwind CSS", "Flutter", "Responsive Design", "UI/UX Design",
+];
+
+const stats = [
+  { number: "8+", label: "Years Experience" },
+  { number: "10+", label: "Projects Done" },
+  { number: "5+", label: "Happy Clients" },
 ];
 
 const About = () => {
-  const { data: setting } = useQuery({
-    queryKey: ["site-settings", "about"],
-    queryFn: async () => {
-      const { data } = await supabase
-        .from("site_settings")
-        .select("*")
-        .eq("key", "about")
-        .maybeSingle();
-      return data?.value as any | null;
-    },
-  });
-
-  const aboutDetails = setting
-    ? [
-        { icon: User, label: "Name", value: setting.name || "Your Name" },
-        { icon: Briefcase, label: "Role", value: setting.role || "UI/UX Designer & Developer" },
-        { icon: MapPin, label: "Location", value: setting.location || "Your City, Country" },
-        { icon: Mail, label: "Email", value: setting.email || "hello@youremail.com" },
-      ]
-    : defaultDetails;
-
-  const skills = setting?.skills?.length ? setting.skills : defaultSkills;
-  const stats = [
-    { number: setting?.years_exp || "5+", label: "Years Experience" },
-    { number: setting?.projects_done || "50+", label: "Projects Done" },
-    { number: setting?.happy_clients || "30+", label: "Happy Clients" },
-  ];
-
   return (
     <section id="about" className="section-padding">
       <div className="max-w-6xl mx-auto">
@@ -67,8 +44,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              {setting?.bio ||
-                "I'm a creative professional with a passion for designing intuitive and visually compelling digital experiences. With expertise spanning design and development, I bridge the gap between aesthetics and functionality."}
+              I'm a frontend developer and UI/UX design expert with 8+ years of experience crafting seamless digital experiences. Currently an Associate → Sr. Software Engineer at Cognizant Technology Solutions, I specialize in building responsive, mobile-first interfaces using React, JavaScript, and modern frontend technologies. I blend design precision with clean code to deliver scalable, user-centered solutions.
             </p>
             <div className="space-y-4">
               {aboutDetails.map((item) => (
@@ -93,7 +69,7 @@ const About = () => {
           >
             <h3 className="font-heading text-xl font-semibold mb-6">Skills & Expertise</h3>
             <div className="flex flex-wrap gap-3">
-              {skills.map((skill: string) => (
+              {skills.map((skill) => (
                 <span
                   key={skill}
                   className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium border border-border/50 hover:border-primary/50 transition-colors"
