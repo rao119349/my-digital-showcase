@@ -5,15 +5,44 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message sent!", description: "Thanks for reaching out. I'll get back to you soon." });
-    setFormData({ name: "", email: "", message: "" });
+
+    try {
+      await emailjs.send(
+        "service_myw13l9", // Replace with your EmailJS service ID
+        "template_17vw2ht", // Replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: "sauravyadav1193@gmail.com", // Your Gmail address
+        },
+        "0avHFsc_iv9tMyBls", // Replace with your EmailJS public key
+      );
+
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      toast({
+        title: "Error sending message",
+        description: "Please try again later or contact me directly.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -26,7 +55,9 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-3">Contact</p>
+          <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-3">
+            Contact
+          </p>
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
             Let's <span className="text-gradient">connect</span>
           </h2>
@@ -49,7 +80,9 @@ const Contact = () => {
               </div>
               <div>
                 <p className="font-heading font-semibold">Email</p>
-                <p className="text-muted-foreground text-sm">sauravyadav1193@gmail.com</p>
+                <p className="text-muted-foreground text-sm">
+                  sauravyadav1193@gmail.com
+                </p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -58,7 +91,9 @@ const Contact = () => {
               </div>
               <div>
                 <p className="font-heading font-semibold">Location</p>
-                <p className="text-muted-foreground text-sm">Faridabad, Haryana, India</p>
+                <p className="text-muted-foreground text-sm">
+                  Faridabad, Haryana, India
+                </p>
               </div>
             </div>
           </div>
@@ -67,7 +102,9 @@ const Contact = () => {
             <Input
               placeholder="Your Name"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
               className="bg-secondary border-border/50 focus:border-primary"
               required
             />
@@ -75,7 +112,9 @@ const Contact = () => {
               type="email"
               placeholder="Your Email"
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
               className="bg-secondary border-border/50 focus:border-primary"
               required
             />
@@ -83,7 +122,9 @@ const Contact = () => {
               placeholder="Your Message"
               rows={5}
               value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
               className="bg-secondary border-border/50 focus:border-primary resize-none"
               required
             />
