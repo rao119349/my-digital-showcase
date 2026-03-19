@@ -9,42 +9,42 @@ const defaultProjects = [
     title: "Brand Campaign Design",
     image_url:
       "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&q=80",
-    link: "https://www.behance.net/",
+    link: "https://www.behance.net/rao1193",
   },
   {
     id: "2",
     title: "Product Photography",
     image_url:
       "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",
-    link: "https://www.behance.net/",
+    link: "https://www.behance.net/rao1193",
   },
   {
     id: "3",
     title: "Illustration Series",
     image_url:
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80",
-    link: "https://www.behance.net/",
+    link: "https://www.behance.net/rao1193",
   },
   {
     id: "4",
     title: "Web Design Concepts",
     image_url:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
-    link: "https://www.behance.net/",
+    link: "https://www.behance.net/rao1193",
   },
   {
     id: "5",
     title: "Motion Graphics",
     image_url:
       "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80",
-    link: "https://www.behance.net/",
+    link: "https://www.behance.net/rao1193",
   },
   {
     id: "6",
     title: "UI Kit Design",
     image_url:
       "https://images.unsplash.com/photo-1545235617-9465d2a55698?w=600&q=80",
-    link: "https://www.behance.net/",
+    link: "https://www.behance.net/rao1193",
   },
 ];
 
@@ -121,7 +121,7 @@ const BehancePortfolio = () => {
           className="mt-10 text-center"
         >
           <a
-            href="https://www.behance.net/"
+            href="https://www.behance.net/rao1193"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-heading font-semibold text-sm hover:bg-primary/90 transition-colors"

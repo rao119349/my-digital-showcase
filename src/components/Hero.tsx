@@ -30,8 +30,7 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[0.95] mb-8"
           >
-            Hi, I'm{" "}
-            <span className="text-gradient">{PERSONAL_INFO.name}</span>
+            Hi, I'm <span className="text-gradient">{PERSONAL_INFO.name}</span>
             <br />
             <span className="text-muted-foreground/60">I build digital</span>
             <br />
@@ -44,7 +43,9 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-muted-foreground font-body text-lg md:text-xl max-w-xl mb-10"
           >
-            Passionate about crafting seamless digital experiences through clean code and intuitive design, with expertise in React, JavaScript, and UI/UX design.
+            Passionate about crafting seamless digital experiences through clean
+            code and intuitive design, with expertise in React, JavaScript, and
+            UI/UX design.
           </motion.p>
 
           <motion.div
@@ -66,7 +67,9 @@ const Hero = () => {
               size="lg"
               className="border-border text-foreground hover:bg-secondary font-heading font-semibold text-base px-8 py-6 gap-2"
               onClick={() =>
-                document.getElementById("work")?.scrollIntoView({ behavior: "smooth" })
+                document
+                  .getElementById("work")
+                  ?.scrollIntoView({ behavior: "smooth" })
               }
             >
               View Work
@@ -83,7 +86,7 @@ const Hero = () => {
         >
           <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border border-border bg-secondary/50">
             <img
-              src="/placeholder.svg"
+              src="/hero.png"
               alt="Saurav Yadav"
               className="w-full h-full object-cover"
             />
