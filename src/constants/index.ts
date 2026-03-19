@@ -35,10 +35,9 @@ export const STATS = [
 ];
 
 export const SOCIAL_LINKS = {
-  behance: "https://www.behance.net/",
-  linkedin: "#",
-  dribbble: "#",
-  github: "#",
+  behance: "https://www.behance.net/rao1193",
+  linkedin: "https://www.linkedin.com/in/rao1193/",
+  github: "https://github.com/rao119349",
 };
 
 export const NAV_LINKS = [

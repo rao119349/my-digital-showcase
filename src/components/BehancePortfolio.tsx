@@ -4,12 +4,48 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
 const defaultProjects = [
-  { id: "1", title: "Brand Campaign Design", image_url: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&q=80", link: "https://www.behance.net/" },
-  { id: "2", title: "Product Photography", image_url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80", link: "https://www.behance.net/" },
-  { id: "3", title: "Illustration Series", image_url: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80", link: "https://www.behance.net/" },
-  { id: "4", title: "Web Design Concepts", image_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80", link: "https://www.behance.net/" },
-  { id: "5", title: "Motion Graphics", image_url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80", link: "https://www.behance.net/" },
-  { id: "6", title: "UI Kit Design", image_url: "https://images.unsplash.com/photo-1545235617-9465d2a55698?w=600&q=80", link: "https://www.behance.net/" },
+  {
+    id: "1",
+    title: "Brand Campaign Design",
+    image_url:
+      "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&q=80",
+    link: "https://www.behance.net/",
+  },
+  {
+    id: "2",
+    title: "Product Photography",
+    image_url:
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",
+    link: "https://www.behance.net/",
+  },
+  {
+    id: "3",
+    title: "Illustration Series",
+    image_url:
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80",
+    link: "https://www.behance.net/",
+  },
+  {
+    id: "4",
+    title: "Web Design Concepts",
+    image_url:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
+    link: "https://www.behance.net/",
+  },
+  {
+    id: "5",
+    title: "Motion Graphics",
+    image_url:
+      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80",
+    link: "https://www.behance.net/",
+  },
+  {
+    id: "6",
+    title: "UI Kit Design",
+    image_url:
+      "https://images.unsplash.com/photo-1545235617-9465d2a55698?w=600&q=80",
+    link: "https://www.behance.net/",
+  },
 ];
 
 const BehancePortfolio = () => {
@@ -36,12 +72,15 @@ const BehancePortfolio = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-3">Behance</p>
+          <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-3">
+            Behance
+          </p>
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
             Behance <span className="text-gradient">portfolio</span>
           </h2>
           <p className="text-muted-foreground text-lg mb-12 max-w-xl">
-            Explore more of my creative work on Behance — from branding to illustration.
+            Explore more of my creative work on Behance — from branding to
+            illustration.
           </p>
         </motion.div>
 

@@ -29,13 +29,15 @@ const ResumeDialog = ({ open, onOpenChange }: ResumeDialogProps) => {
   });
 
   const pdfUrl = settings?.pdf_url || "/resume.pdf";
-  const docxUrl = settings?.docx_url || "/resume.pdf"; // fallback
+  const docxUrl = settings?.docx_url || "/resume.docx"; // fallback
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md bg-card border-border">
         <DialogHeader>
-          <DialogTitle className="font-heading text-xl">Download Resume</DialogTitle>
+          <DialogTitle className="font-heading text-xl">
+            Download Resume
+          </DialogTitle>
           <DialogDescription>Choose your preferred format</DialogDescription>
         </DialogHeader>
         <div className="flex flex-col gap-3 mt-2">
@@ -44,7 +46,7 @@ const ResumeDialog = ({ open, onOpenChange }: ResumeDialogProps) => {
             className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading font-semibold gap-3 py-6"
             asChild
           >
-            <a href={pdfUrl} download="Resume.pdf">
+            <a href={pdfUrl} download="Saurav_Yadav_Resume.pdf">
               <FileText className="w-5 h-5" />
               Download PDF
             </a>
@@ -55,7 +57,7 @@ const ResumeDialog = ({ open, onOpenChange }: ResumeDialogProps) => {
             className="border-border text-foreground hover:bg-secondary font-heading font-semibold gap-3 py-6"
             asChild
           >
-            <a href={docxUrl} download="Resume.docx">
+            <a href={docxUrl} download="Saurav_Yadav_Resume.docx">
               <Download className="w-5 h-5" />
               Download DOCX
             </a>
