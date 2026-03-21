@@ -35,8 +35,8 @@ export const STATS = [
 ];
 
 export const SOCIAL_LINKS = {
-  behance: "https://www.behance.net/rao1193",
-  linkedin: "https://www.linkedin.com/in/rao1193/",
+  behance: "https://www.behance.net/bytebeast",
+  linkedin: "https://www.linkedin.com/in/bytebeast",
   github: "https://github.com/rao119349",
 };
 
