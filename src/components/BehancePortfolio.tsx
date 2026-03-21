@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import ProjectCarousel from "@/components/ProjectCarousel";
 
 const defaultProjects = [
   {
@@ -84,18 +85,21 @@ const BehancePortfolio = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {projects.map((project, i) => (
+        <ProjectCarousel
+          projects={projects}
+          itemsPerView={3}
+          aspectRatio="square"
+          animationType="scale"
+          renderItem={(project, index) => (
             <motion.a
-              key={project.id}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group relative aspect-square rounded-xl overflow-hidden"
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="group relative aspect-square rounded-xl overflow-hidden block"
             >
               <img
                 src={project.image_url}
@@ -110,8 +114,8 @@ const BehancePortfolio = () => {
                 <span className="text-xs text-primary">View on Behance</span>
               </div>
             </motion.a>
-          ))}
-        </div>
+          )}
+        />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
