@@ -29,7 +29,8 @@ const ResumeDialog = ({ open, onOpenChange }: ResumeDialogProps) => {
   });
 
   const pdfUrl = settings?.pdf_url || "/resume.pdf";
-  const docxUrl = settings?.docx_url || "/resume.pdf"; // fallback
+  // const docxUrl = settings?.docx_url || "/resume.pdf"; // fallback
+  const docxUrl = "/resume.pdf"; // fallback
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
