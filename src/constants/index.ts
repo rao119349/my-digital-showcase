@@ -23,9 +23,19 @@ export const SKILLS = [
   "Vite",
   "GitHub",
   "Tailwind CSS",
-  "Flutter",
   "Responsive Design",
   "UI/UX Design",
+  "Flutter",
+  "User-Centered Design",
+  "React Query / TanStack Query",
+  "Supabase",
+  "Cross-Browser Compatibility",
+  "Performance Optimization",
+  "Agile Methodologies",
+  "Problem-Solving",
+  "Team Collaboration",
+  "Effective Communication",
+  "CI/CD (GitHub Actions, Jenkins)",
 ];
 
 export const STATS = [
