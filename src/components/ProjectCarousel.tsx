@@ -86,8 +86,12 @@ const ProjectCarousel = ({
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="hidden md:flex" />
-      <CarouselNext className="hidden md:flex" />
+      {projects.length > itemsPerView && (
+        <>
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
+        </>
+      )}
     </Carousel>
   );
 };
