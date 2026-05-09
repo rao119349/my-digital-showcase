@@ -53,6 +53,31 @@ export const SOCIAL_LINKS = {
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
+  { label: "Live", href: "#live" },
   { label: "Behance", href: "#behance" },
   { label: "Contact", href: "#contact" },
+];
+
+export const LIVE_PROJECTS = [
+  {
+    title: "Linear",
+    category: "Productivity",
+    description:
+      "The issue tracking tool you'll enjoy using — built for high-performance software teams.",
+    link: "https://linear.app",
+  },
+  {
+    title: "Vercel",
+    category: "Developer Platform",
+    description:
+      "Develop, preview, and ship — the frontend cloud for building and deploying modern web apps.",
+    link: "https://vercel.com",
+  },
+  {
+    title: "Stripe",
+    category: "Payments",
+    description:
+      "Financial infrastructure for the internet — payments, billing, and more for businesses of every size.",
+    link: "https://stripe.com",
+  },
 ];
